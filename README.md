@@ -1,5 +1,18 @@
 # whisper-rs
 
+> **This branch is a fork for one fix.** It is the registry release
+> (whisper-rs 0.16.0 / whisper-rs-sys 0.15.0, commit `7558e1b`) with its
+> whisper.cpp submodule pointing at
+> [YitzhakMizrahi/whisper.cpp `riptide/alloc-check-0.15.0`](https://github.com/YitzhakMizrahi/whisper.cpp/tree/riptide/alloc-check-0.15.0):
+> whisper.cpp v1.8.3 plus one commit. When a model buffer can't be allocated
+> (for example, a GPU with no room for the weights), the model load now
+> returns an error instead of asserting in `ggml_backend_buffer_is_host`, and
+> frees what it had allocated. The upstream report of this abort is
+> [ggml-org/whisper.cpp#3554](https://github.com/ggml-org/whisper.cpp/issues/3554).
+> The fork ends when upstream takes the fix and a whisper-rs-sys release
+> bundles it. The live whisper-rs repository is on
+> [Codeberg](https://codeberg.org/tazz4843/whisper-rs).
+
 Rust bindings to [whisper.cpp](https://github.com/ggerganov/whisper.cpp/)
 
 ## Usage
